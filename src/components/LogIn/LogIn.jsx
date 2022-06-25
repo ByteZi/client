@@ -14,17 +14,21 @@ const LogIn = () => {
 
     const GetHandler = (e) => {
         e.preventDefault()
-        axios.get("http://localhost:1337/login/", {params:{
-            userName,
-            password
-        }})
+
+        axios.defaults.withCredentials = true
+        axios.get("http://localhost:1337/login/", {
+            params: {
+                userName,
+                password
+            }
+        })
             .then(res => {
                 const user = res.data.userName
                 history.push(`/${user}`)
             })
-            .catch(() => {
-                setLogInErr(true)
-                // console.log(err)
+            .catch(err => {
+               //Add backend err resp to loginErr
+                console.log(err)
             })
     }
 

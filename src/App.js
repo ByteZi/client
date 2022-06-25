@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {Switch, Route, BrowserRouter, Link} from 'react-router-dom'
 import Register from "./components/Register/Register"
+import Login from "./components/LogIn/LogIn"
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         </Route>
       
         <Route path ="/Login">
-
+          <Login/>
         </Route>
       
         <Route path="/:username">
